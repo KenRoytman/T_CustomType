@@ -1,4 +1,6 @@
-create or replace type T_CustomType is object
+create or replace type T_CustomType
+  authid current_user
+is object
 (
    classname varchar2(20),
    not instantiable member function Display return varchar2,
