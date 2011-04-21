@@ -1,10 +1,10 @@
-create or replace type body TCustomType
+create or replace type body T_CustomType
 is
 
   static function CreateType( className in varchar2, value in number )
-    return TCustomType is
+    return T_CustomType is
 
-    obj TCustomType;
+    obj T_CustomType;
   begin
     execute immediate
       'begin
@@ -16,8 +16,8 @@ is
   end;
 
   static function CreateType( className in varchar2, value in date )
-    return TCustomType is
-    obj TCustomType;
+    return T_CustomType is
+    obj T_CustomType;
   begin
     execute immediate
     'begin
@@ -29,8 +29,8 @@ is
   end;
 
   static function CreateType( className in varchar2, value in varchar2 )
-    return TCustomType is
-    obj TCustomType;
+    return T_CustomType is
+    obj T_CustomType;
   begin
     execute immediate
     'begin
