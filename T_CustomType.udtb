@@ -8,7 +8,7 @@ is
   begin
     execute immediate
       'begin
-              :0 := new T'||className||'( :1 );
+              :0 := new T_'||className||'( :1 );
       end;'
       using OUT obj, IN value;
       
@@ -21,7 +21,7 @@ is
   begin
     execute immediate
     'begin
-            :0 := new T'||className||'( :1 );
+            :0 := new T_'||className||'( :1 );
     end;'
     using OUT obj, IN value;
 
@@ -34,7 +34,7 @@ is
   begin
     execute immediate
     'begin
-            :0 := new T'||className||'( :1 );
+            :0 := new T_'||className||'( :1 );
     end;'
     using OUT obj, IN value;
 
