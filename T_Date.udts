@@ -1,0 +1,13 @@
+create or replace type T_Date under T_CustomType
+(
+    value   date,
+
+    constructor function T_Date( value in date )
+      return self as result,
+
+    overriding member function Display
+      return varchar2
+)
+final;
+/ 
+

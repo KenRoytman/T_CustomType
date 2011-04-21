@@ -1,0 +1,20 @@
+create or replace type body T_String
+is
+  constructor function T_String( value in varchar2 )
+    return self as result
+  is
+  begin
+    self.classname := 'STRING';
+    self.value := value;
+    return;
+  end;
+
+  overriding member function Display
+    return varchar2
+  is
+  begin
+    return(self.value);
+  end;
+
+end;
+/

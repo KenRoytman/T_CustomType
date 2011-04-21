@@ -1,0 +1,20 @@
+create or replace type body T_Number is
+  constructor function T_Number(value in number)
+    return self as result
+  is
+  begin
+      self.classname := 'NUMBER';
+      self.value := value;
+
+      return;
+  end;
+
+  overriding member function Display
+    return varchar2
+  is
+  begin
+      return( to_char( self.value ) );
+  end display;
+
+end;
+/

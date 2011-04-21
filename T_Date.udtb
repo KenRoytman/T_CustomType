@@ -1,0 +1,22 @@
+create or replace type body T_Date
+as
+
+    constructor function T_Date( value in date )
+      return self as result
+    is
+    begin
+            self.classname := 'DATE';
+            self.value := value;
+            return;
+    end;
+
+    overriding member function Display
+      return varchar2
+    is
+    begin
+        return( TO_CHAR( self.value ) );
+    end Display;
+
+end;
+/ 
+
