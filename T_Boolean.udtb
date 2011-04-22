@@ -1,0 +1,48 @@
+create or replace type body T_Boolean
+as
+
+  static function True
+    return number
+  is
+  begin
+    return 1;
+  end;
+
+  static function False
+    return number
+  is
+  begin
+    return 0;
+  end;
+
+  constructor function T_Boolean(value in number)
+    return self as result
+  is
+  begin
+    if (value not in (T_Boolean.True(), T_Boolean.False()))
+    then
+      raise_application_error
+      (
+        -20001
+      , 'Invalid value for T_Boolean.  True=1, False=0'
+      );
+    end if;
+
+    self.value := value;
+    self.className := 'BOOLEAN';
+  end;
+
+  overriding member function Display
+    return varchar2
+  is
+  begin
+    return
+    (
+      case self.value
+        when T_Boolean.True() then 'True'
+        when T_Boolean.False() then 'False'
+      end
+    );
+  end;
+end;
+/

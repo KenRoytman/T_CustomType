@@ -1,0 +1,13 @@
+create or replace type T_Boolean under T_CustomType
+(
+  value   integer,
+  static function True
+    return number deterministic,
+  static function False
+    return number deterministic,
+  constructor function T_Boolean(value in number)
+    return self as result,
+  overriding member function Display
+    return varchar2
+) final;
+/
